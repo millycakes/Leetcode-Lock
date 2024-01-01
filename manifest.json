@@ -1,0 +1,34 @@
+{
+"name": "Leetcode Lock",
+"version": "0.1.0",
+"description": "Solve a Leetcode problem to access fun websites",
+"permissions": ["storage", "tabs"],
+"host_permissions": ["https://leetcode.com/*"],
+"background": {
+  "service_worker": "background.js"
+},
+"content_scripts": [
+  {
+    "matches": ["https://leetcode.com/*"],
+    "js": ["contentScript.js"]
+  }
+],
+"web_accessible_resources": [
+  {
+    "resources": [
+      "assets/bookmark.png",
+      "assets/play.png",
+      "assets/delete.png",
+      "assets/save.png"
+    ],
+    "matches": ["https://leetcode.com/*"]
+  }
+],
+"action": {
+  "default_icon": {
+  },
+  "default_title": "Leetcode Lock",
+  "default_popup": "popup.html"
+},
+"manifest_version": 3
+}
