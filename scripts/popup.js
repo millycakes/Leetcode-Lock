@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const pattern = new RegExp("[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:.(com|net|org|io|edu|info|gov))+");
         if (!pattern.test(address)) {
             document.getElementById("form-message").style.color = "red";
-            document.getElementById("form-message").innerHTML = `Address is not valid (should be of format websitename.com)`;
+            document.getElementById("form-message").innerHTML = `Address is not valid (should be of format websitename.xxx)`;
         } else {
             chrome.storage.local.get("blacklistWebsites", function (item) {
                 const prevBlacklist = item["blacklistWebsites"]
