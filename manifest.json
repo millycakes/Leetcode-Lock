@@ -5,21 +5,18 @@
 "permissions": ["storage", "tabs"],
 "host_permissions": ["https://leetcode.com/*"],
 "background": {
-  "service_worker": "background.js"
+  "service_worker": "scripts/background.js"
 },
 "content_scripts": [
   {
     "matches": ["https://leetcode.com/*"],
-    "js": ["contentScript.js"]
+    "js": ["scripts/contentScript.js"]
   }
 ],
 "web_accessible_resources": [
   {
     "resources": [
-      "assets/bookmark.png",
-      "assets/play.png",
-      "assets/delete.png",
-      "assets/save.png"
+      "assets/delete.png"
     ],
     "matches": ["https://leetcode.com/*"]
   }

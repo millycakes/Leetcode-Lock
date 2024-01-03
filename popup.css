@@ -24,6 +24,12 @@
     margin-right: 10px;
   }
   
+  .delete-icon {
+    float: right;
+    margin-left: 4px;
+    cursor: pointer;
+}
+
   .selectable {
     background-color: #3498db;
     color: white;
