@@ -3,7 +3,7 @@ chrome.storage.local.set({
     lastSolved: -1
 })
 
-chrome.tabs.onUpdated.addListener((tab) => {
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     chrome.storage.local.get(["lastSolved", "blacklistWebsites"], function (item) {
         console.log(tab.url);
         if (tab.url) {
