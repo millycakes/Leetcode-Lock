@@ -3,14 +3,15 @@
 "version": "0.1.0",
 "description": "Solve a Leetcode problem to access fun websites",
 "permissions": ["storage", "tabs"],
-"host_permissions": ["https://leetcode.com/*"],
+"host_permissions": ["<all_urls>"],
 "background": {
   "service_worker": "scripts/background.js"
 },
 "content_scripts": [
   {
-    "matches": ["https://leetcode.com/*"],
-    "js": ["scripts/contentScript.js"]
+    "matches": ["<all_urls>"],
+    "js": ["scripts/contentScript.js"],
+    "run_at": "document_idle"
   }
 ],
 "web_accessible_resources": [
@@ -18,7 +19,7 @@
     "resources": [
       "assets/delete.png"
     ],
-    "matches": ["https://leetcode.com/*"]
+    "matches": ["<all_urls>"]
   }
 ],
 "action": {
