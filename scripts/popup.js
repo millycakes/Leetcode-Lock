@@ -43,7 +43,8 @@ document.addEventListener("DOMContentLoaded", function() {
             addNewLink(item["blacklistWebsites"][i]);
         }
         for (let i = 0; i<item["tags"].length; i++) {
-            //TODO!!
+            const button = document.getElementById(item["tags"][0]);
+            button.style.backgroundColor = '#f08e0c';
         }
     })
 
@@ -78,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
     buttons.forEach(function(button) {
         button.addEventListener('click', function(e) {
             e.preventDefault();
-            const find = button.textContent.toLowerCase().replace(/\s/g, "-");
+            const find = button.id;
     
             chrome.storage.local.get("tags", function (item) {
                 let prevTags = item["tags"]
