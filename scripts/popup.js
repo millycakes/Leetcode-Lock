@@ -38,15 +38,16 @@ chrome.storage.onChanged.addListener(function(changes) {
 
 document.addEventListener("DOMContentLoaded", function() {
 
-    chrome.storage.local.get("blacklistWebsites", function(item) {
+    chrome.storage.local.get(["blacklistWebsites", "tags"], function(item) {
         for (let i = 0; i < item["blacklistWebsites"].length; i++) {
-            addNewLink(item["blacklistWebsites"][i])
+            addNewLink(item["blacklistWebsites"][i]);
+        }
+        for (let i = 0; i<item["tags"].length; i++) {
+            //TODO!!
         }
     })
+
     const form = document.querySelector('form');
-
-
-
     form.addEventListener('submit', function (e) {
         e.preventDefault()
         const address = document.getElementById('website').value;
@@ -56,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("form-message").innerHTML = `Address is not valid (should be of format websitename.xxx)`;
         } else {
             chrome.storage.local.get("blacklistWebsites", function (item) {
-                const prevBlacklist = item["blacklistWebsites"]
+                const prevBlacklist = item["blacklistWebsites"];
                 if (prevBlacklist.includes(address)) {
                     document.getElementById("form-message").style.color = "red";
                     document.getElementById("form-message").innerHTML = `Address already in blacklist.`;
@@ -72,4 +73,32 @@ document.addEventListener("DOMContentLoaded", function() {
             })
         }
     })
+
+    const buttons = document.querySelectorAll('#selectableList .selectable');
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const find = button.textContent.toLowerCase().replace(/\s/g, "-");
+    
+            chrome.storage.local.get("tags", function (item) {
+                let prevTags = item["tags"]
+    
+                if (prevTags.includes(find)) {
+                    console.log("removed");
+                    prevTags = prevTags.filter(tag => tag !== find);
+                    e.target.style.backgroundColor = '#F2A53F';
+                } else {
+                    console.log("added");
+                    prevTags = [...prevTags, find];
+                    e.target.style.backgroundColor = '#f08e0c';
+                }
+                chrome.storage.local.set({ tags: prevTags }, function() {
+                    if (chrome.runtime.lastError) {
+                        console.error('Error setting tags:', chrome.runtime.lastError);
+                    }
+                });
+            });
+        });
+    });
+    
 })
