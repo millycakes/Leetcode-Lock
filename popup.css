@@ -3,75 +3,78 @@
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
-  }
+    background-color: black;
+    color: white;
+}
 
-  .tag-title {
+.tag-title {
     font-size: 15px;
-  }
-  
-  .topic-tags {
+}
+
+.topic-tags {
     margin-bottom: 20px;
-  }
-  
-  .topic-tags ul {
+}
+
+.topic-tags ul {
     list-style: none;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-  }
-  
-  .topic-tags ul li {
+}
+
+.topic-tags ul li {
     margin-right: 10px;
-  }
-  
-  .delete-icon {
+}
+
+.delete-icon {
     float: right;
     margin-left: 4px;
     cursor: pointer;
 }
 
-  .selectable {
-    background-color: #3498db;
+.selectable {
+    background-color: #F2A53F;
     color: white;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 5px;
     margin-bottom: 10px;
-  }
-  
-  .title {
+}
+
+.title {
     font-size: 24px;
     font-weight: bold;
     margin-top: 20px;
     margin-bottom: 10px;
-  }
-  
-  form label {
+}
+
+form label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-  }
-  
-  form input[type="text"] {
+}
+
+form input[type="text"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  
-  form input[type="submit"] {
-    background-color: #3498db;
+    background-color: black;
+    color: white;
+}
+
+form input[type="submit"] {
+    background-color: #F2A53F;
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-  }
-  
-  .links {
+}
+
+.links {
     margin-top: 20px;
     font-weight: bold;
-  }
-  
+}
