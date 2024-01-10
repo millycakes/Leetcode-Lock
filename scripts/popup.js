@@ -16,12 +16,14 @@ const addNewLink = (newAddress) => {
 
     button.querySelector('.delete-icon').addEventListener('click', function (e) {
         e.stopPropagation();
-        e.target.parentElement.parentElement.remove();
         chrome.storage.local.get("blacklistWebsites", function (item) {
+            const newList = item["blacklistWebsites"].filter(website => website !== e.target.parentElement.parentElement.textContent)
+            console.log(newList);
             chrome.storage.local.set({
-                blacklistWebsites: item["blacklistWebsites"].splice(item["blacklistWebsites"].indexOf(newAddress), 1)
+                blacklistWebsites: newList
             })
         })
+        e.target.parentElement.parentElement.remove();
     });
 }
 
