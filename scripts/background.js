@@ -1,7 +1,7 @@
 chrome.storage.local.set({
     blacklistWebsites: ["instagram.com"],
     lastSolved: -1,
-    tags:['array']
+    tags:[]
 })
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
